@@ -122,12 +122,11 @@ Up through July 20, 2015, the raw OONI http requests data consist of 2,505 repor
 We first consider a simplified model, in which all flows start at the same known time s and have the same known duration $l$ (basically, $[s,s+l]$ is our observation window). The only factor distinguishing the flows is their (unknown) rate $r$. We get:
 \begin{equation}
 \label{1}
-P(y) = \int\limits_{r}^{} P(y|r)P(r)= \int\limits_{r}^{} e^{-rql} (rq dt)^{n_{y}}P(r).
+P(y) = \int\limits_{r}^{} P(y|r)P(r)= \int\limits_{r}^{} e^{-rql} (rq dt)^{n_{y}}P(r), \text{where } P(r) \text{  – our prior information about the rate } r.
 \end{equation}
-where $P(r)$ – our prior information about the rate $r$.  
 
 Since $r$ is a positive parameter, we express our complete lack of prior knowledge by using the scale-invariant Jeffrey’s ignorance prior $P(r) 
-\sim r -1 dr$. This basically says that log r is distributed uniformly: the probability of $r \in [a,b]$ is proportional to $log(\frac{b}{a})$. For example, $r \in [1,10]$ and $r \in [10,100]$ have the same probability.
+\sim r -1 dr$. This basically says that log r is distributed uniformly: the probability of $r \in [a,b]$ is proportional to $\log\left(\dfrac{b}{a}\right)$. For example, $r \in [1,10]$ and $r \in [10,100]$ have the same probability.
 \begin{equation}
 \label{2}
 \int\limits_{r}^{} (rq dt)^{n_{y}} e^{-rql} P(r) = (q dt) \int\limits_{r=0}^{\infty} r^{n} y^{-1} e^{-rql} dr = \frac{dt^{n_{y}}}{l^{n_{y}}}.
